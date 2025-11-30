@@ -1,0 +1,134 @@
+/* 1. Reset Dasar: Menghapus margin bawaan browser yang suka bikin berantakan */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif; /* Menggunakan font modern */
+}
+
+/* 2. Body: Memberi background warna-warni dan menengahkan kotak aplikasi */
+body {
+    background: linear-gradient(135deg, #153677, #4e085f); /* Gradasi Biru ke Ungu */
+    min-height: 100vh; /* Tinggi minimal seukuran layar penuh */
+    display: flex;
+    justify-content: center; /* Tengah horizontal */
+    align-items: center;     /* Tengah vertikal */
+    padding: 10px;
+}
+
+/* 3. Container: Kotak Putih Utama */
+.container {
+    background: white;
+    width: 100%;
+    max-width: 450px; /* Agar tidak terlalu lebar di layar komputer */
+    padding: 40px 30px;
+    border-radius: 15px; /* Sudut melengkung */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Bayangan biar terlihat melayang */
+}
+
+/* Judul "To-Do List" */
+.container h1 {
+    color: #002765;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+/* 4. Area Input (Baris tempat ngetik) */
+.input-area {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #edeef0;/* Warna abu muda */
+    border-radius: 30px;  /* Membuat bentuk lonjong/kapsul */
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+/* Kolom Ketikan */
+input{
+    flex: 1;
+    border: none; /* Input akan memanjang memenuhi ruang sisa */
+    outline: none; /* Hilangkan garis biru saat diklik */
+    background: transparent;
+    padding: 15px;
+    font-size: 16px;
+}
+
+/* Tombol Tambah */
+button {
+    border: none;
+    outline: none;
+    padding: 16px 50px;
+    background: #ff5945; /* Warna Oranye kemerahan */
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 40px; /* Membulatkan tombol */
+    font-weight: bold;
+}
+
+button:hover {
+    background: #e04835; /* Warna lebih gelap saat disentuh mouse */
+}
+
+/* 5. Daftar Tugas (List) */
+ul li {
+    list-style: none; /* Menghilangkan bullet point (titik hitam) */
+    font-size: 17px;
+    padding: 12px 8px 12px 50px; /* Padding kiri besar untuk tempat icon bulat nanti */
+    user-select: none; /* Agar teks tidak terblok saat diklik-klik cepat */
+    cursor: pointer;
+    position: relative;
+    transition: 0.2s;
+}
+
+/* Efek Zebra (Opsional: Baris ganjil genap beda warna dikit) */
+ul li:hover {
+    background-color: #f9f9f9;
+    border-radius: 5px;
+}
+
+/* 6. STYLE SAAT TUGAS SELESAI (Class 'checked' ditambahkan oleh JS) */
+ul li.checked {
+    color: #555; /* Warna jadi abu */
+    text-decoration: line-through; /* Dicoret tengah */
+}
+
+/* Membuat Lingkaran Checklist Kustom (Visual Only) */
+ul li::before {
+    content: '';
+    position: absolute;
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    background-image: url(https://img.icons8.com/material-outlined/24/000000/unchecked-circle.png);
+    background-size: cover;
+    background-position: center;
+    top: 8px;
+    left: 8px;
+}
+
+/* Mengubah icon jadi centang saat class checked aktif */
+ul li.checked::before {
+    background-image: url(https://img.icons8.com/material-rounded/24/ff5945/checked-2.png);
+}
+
+/* 7. Tombol Silang (x) untuk Hapus */
+ul li span {
+    position: absolute;
+    right: 0;
+    top: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    color: #555;
+    line-height: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ul li span:hover {
+    background: #edeef0; /* Efek hover bulat */
+    color: red;
+}
